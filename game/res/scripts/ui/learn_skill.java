@@ -37,7 +37,7 @@ import com.javaxyq.util.UIUtils;
 import com.javaxyq.widget.Player;
 
 /**
- * Ñ§Ï°Ê¦ÃÅ¼¼ÄÜ½Å±¾
+ * å­¦ä¹ å¸ˆé—¨æŠ€èƒ½è„šæœ¬
  * @author 
  * @date 2014-6-4 create
  */
@@ -48,7 +48,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 	private List<Label>labels;
 	private StringBuffer skilldesc;
 	Map<String, Object> properties;
-	String[] attrs = {"ÉËº¦","ÁéÁ¦","·ÀÓù","ÁéÁ¦","¶ã±Ü","ËÙ¶È","ÃüÖĞ","HP","MP"};
+	String[] attrs = {"ä¼¤å®³","çµåŠ›","é˜²å¾¡","çµåŠ›","èº²é¿","é€Ÿåº¦","å‘½ä¸­","HP","MP"};
 	private Label default_skilllabel;
 	private Label default_magiclabel;
 	private Label basic_skilllabel;
@@ -75,7 +75,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 		skills = dataManager.findMainSkill(school);
 		textrow = 0;
 		mlistrow = 0;
-		//»ù´¡¼¼ÄÜÉèÎªÄ¬ÈÏÏî	
+		//åŸºç¡€æŠ€èƒ½è®¾ä¸ºé»˜è®¤é¡¹	
 		String basic_skill = dataManager.getBasicSkillName(school);
 		for(int s=0; s<skills.size(); s++){
 			SkillMain skill = skills.get(s);
@@ -84,11 +84,11 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 			mskillname.addMouseMotionListener(this);
 			labels.add(mskillname);
 			if(StringUtils.equals(basic_skill, skill.getName())){
-				//ÃÅÅÉ»ù´¡¼¼ÄÜÉèÎªºìÉ«×ÖÌå
+				//é—¨æ´¾åŸºç¡€æŠ€èƒ½è®¾ä¸ºçº¢è‰²å­—ä½“
 				this.setBasic_skilllabel(mskillname);
 				mskillname.setForeground(UIUtils.getColor("red"));
 				mskillname.setBackground(new Color(0x4d,0x33,0xd7));
-				//»ù´¡¼¼ÄÜÉèÎªÄ¬ÈÏÏî	
+				//åŸºç¡€æŠ€èƒ½è®¾ä¸ºé»˜è®¤é¡¹	
 				this.setDefault_skilllabel(mskillname);
 				String name =mskillname.getName();
 			    int index = Integer.parseInt(name.substring(name.length()-1,name.length()));
@@ -109,7 +109,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 		Label label = default_skilllabel;
 		String skill_name = label.getName();
 		int index = Integer.parseInt(skill_name.substring(skill_name.length()-1,skill_name.length()));
-		String[] magics = skills.get(index).getMagicSkill().split("¡¢");
+		String[] magics = skills.get(index).getMagicSkill().split("ã€");
 		if(magics.length > 3 && mlistrow+3 < magics.length){
 			mlistrow++;
 			updateMagicsList(3,magics);
@@ -121,7 +121,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 			Label label = default_skilllabel;
 			String skill_name = label.getName();
 			int index = Integer.parseInt(skill_name.substring(skill_name.length()-1,skill_name.length()));
-			String[] magics = skills.get(index).getMagicSkill().split("¡¢");
+			String[] magics = skills.get(index).getMagicSkill().split("ã€");
 			mlistrow--;
 			updateMagicsList(3,magics);
 		}
@@ -129,7 +129,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 	
 	public void text_down(ActionEvent evt){
 		if(!skilldesc.toString().equals("")){
-			Label skilldes  = (Label) this.panel.findCompByName("¼¼ÄÜËµÃ÷");
+			Label skilldes  = (Label) this.panel.findCompByName("æŠ€èƒ½è¯´æ˜");
 			textrow++;
 			String tt = skilldesc.toString();
 			for(int i=0; i<textrow; i++){
@@ -141,7 +141,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 		}	
 	}
 	public void text_up(ActionEvent event){
-		Label skilldes  = (Label) this.panel.findCompByName("¼¼ÄÜËµÃ÷");
+		Label skilldes  = (Label) this.panel.findCompByName("æŠ€èƒ½è¯´æ˜");
 		if(textrow>0){
 			textrow--;
 		}
@@ -157,37 +157,37 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 	public void learnSkill(ActionEvent evt){
 		Player player = context.getPlayer();
     	PlayerVO vo = player.getData();
-    	//Ä¬ÈÏÏî¼¼ÄÜµÈ¼¶
+    	//é»˜è®¤é¡¹æŠ€èƒ½ç­‰çº§
     	Label label = this.getDefault_skilllabel();
         String skill_name = label.getName();
     	int index = Integer.parseInt(skill_name.substring(skill_name.length()-1,skill_name.length()));
     	int skillLevel = this.getSkillLevel(index);
-    	//»ù´¡¼¼ÄÜµÈ¼¶
+    	//åŸºç¡€æŠ€èƒ½ç­‰çº§
     	String basic_skillname = this.getBasic_skilllabel().getName();
     	int bindex = Integer.parseInt(basic_skillname.substring(basic_skillname.length()-1,basic_skillname.length()));
     	int basic_skillLevel =this.getSkillLevel(bindex);
-    	//Éı¼¶ËùĞè¾­ÑéºÍ½ğÇ®
+    	//å‡çº§æ‰€éœ€ç»éªŒå’Œé‡‘é’±
     	long mskillLevelExp = dataManager.getMSkillsLevelExp(skillLevel);
     	long mskillLevelSpend = dataManager.getMSkillsLevelSpend(skillLevel);
     	System.out.println("i,b is:"+index+","+bindex);
     	System.out.println("level is:"+skillLevel+","+basic_skillLevel);
     	if(skillLevel >= vo.level + 10){
-    		System.out.println("ËùÑ¡¼¼ÄÜµÈ¼¶²»ÄÜ³¬¹ıÈËÎïµÈ¼¶+10");
-    		helper.prompt( "ËùÑ¡¼¼ÄÜµÈ¼¶²»ÄÜ³¬¹ıÈËÎïµÈ¼¶+10", 2000);
+    		System.out.println("æ‰€é€‰æŠ€èƒ½ç­‰çº§ä¸èƒ½è¶…è¿‡äººç‰©ç­‰çº§+10");
+    		helper.prompt( "æ‰€é€‰æŠ€èƒ½ç­‰çº§ä¸èƒ½è¶…è¿‡äººç‰©ç­‰çº§+10", 2000);
     	}else if(skillLevel >= basic_skillLevel && index != bindex){
-    		System.out.println("ËùÑ¡¼¼ÄÜµÈ¼¶²»ÄÜ³¬¹ı»ù´¡¼¼ÄÜµÈ¼¶");
-    		helper.prompt( "ËùÑ¡¼¼ÄÜµÈ¼¶²»ÄÜ³¬¹ı»ù´¡¼¼ÄÜµÈ¼¶", 2000);
+    		System.out.println("æ‰€é€‰æŠ€èƒ½ç­‰çº§ä¸èƒ½è¶…è¿‡åŸºç¡€æŠ€èƒ½ç­‰çº§");
+    		helper.prompt( "æ‰€é€‰æŠ€èƒ½ç­‰çº§ä¸èƒ½è¶…è¿‡åŸºç¡€æŠ€èƒ½ç­‰çº§", 2000);
     	}else if(vo.exp < mskillLevelExp){
-    		//¾­Ñé²»¹»
-    		System.out.println("ÄãµÄ¾­ÑéÃ»´ïµ½Éı¼¶ËùĞèµÄ¾­Ñé");
-    		helper.prompt( "ÄãµÄ¾­ÑéÃ»´ïµ½Éı¼¶ËùĞèµÄ¾­Ñé", 2000);
+    		//ç»éªŒä¸å¤Ÿ
+    		System.out.println("ä½ çš„ç»éªŒæ²¡è¾¾åˆ°å‡çº§æ‰€éœ€çš„ç»éªŒ");
+    		helper.prompt( "ä½ çš„ç»éªŒæ²¡è¾¾åˆ°å‡çº§æ‰€éœ€çš„ç»éªŒ", 2000);
     		//MP3Player.play()
     	}else if(vo.money <mskillLevelSpend){
-    		//½ğÇ®²»¹»
-    		System.out.println("ÄãµÄ½ğÇ®Ã»´ïµ½Éı¼¶ËùĞèµÄ½ğÇ®");
-    		helper.prompt( "ÄãµÄ¼ñÇ®Ã»´ïµ½Éı¼¶ËùĞèµÄ½ğÇ®", 2000);
+    		//é‡‘é’±ä¸å¤Ÿ
+    		System.out.println("ä½ çš„é‡‘é’±æ²¡è¾¾åˆ°å‡çº§æ‰€éœ€çš„é‡‘é’±");
+    		helper.prompt( "ä½ çš„æ¡é’±æ²¡è¾¾åˆ°å‡çº§æ‰€éœ€çš„é‡‘é’±", 2000);
     	}else{
-    		//helper.prompt( "¹§Ï²Äã£¬Éı¼¶¿©~~¼ÓÓÍ°É£¡", 2000);
+    		//helper.prompt( "æ­å–œä½ ï¼Œå‡çº§å’¯~~åŠ æ²¹å§ï¼", 2000);
 			//player.playEffect("level_up",false);
 			MP3Player.play("sound/addon/level_up.mp3");
 			String skill = "skill"+index;
@@ -214,17 +214,17 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 			if(skill_name.contains("skillLevel")){
 				mlistrow = 0;			
 				int skillLevel = this.getSkillLevel(index);
-				//Ñ¡Ôñ¼¼ÄÜÉèÎªÄ¬ÈÏÏî
+				//é€‰æ‹©æŠ€èƒ½è®¾ä¸ºé»˜è®¤é¡¹
 				this.setDefault_skilllabel(label);
 				this.setDefault_magiclabel(null);
 				properties.put("mskillsLevelExp", dataManager.getMSkillsLevelExp(skillLevel));
 				properties.put("mskillsLevelSpend", dataManager.getMSkillsLevelSpend(skillLevel));
-				//ÉèÖÃ±³¾°É«
+				//è®¾ç½®èƒŒæ™¯è‰²
 				updateLabelBackground();
 				Label mskillname = (Label) this.panel.findCompByName(skill_name);
 				mskillname.setBackground(new Color(0x4d,0x33,0xd7));			
 				mskillname.setOpaque(true);
-				String[] magics = skills.get(index).getMagicSkill().split("¡¢");
+				String[] magics = skills.get(index).getMagicSkill().split("ã€");
 				magicskills.removeAll(magicskills);
 				int length = Math.min(magics.length, 3);
 				if(skills.get(index).getMagicSkill().equals("0")){
@@ -233,10 +233,10 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 				updateMagicsList(length, magics);
 				processText(skills.get(index));
 			}
-			else if(skill_name.contains("·¨ÊõÃû")){
-				//ÉèÖÃ±³¾°É«
+			else if(skill_name.contains("æ³•æœ¯å")){
+				//è®¾ç½®èƒŒæ™¯è‰²
 				Label magicname = (Label) this.panel.findCompByName(skill_name);
-				//Ñ¡Ôñ·¨ÊõÎªÄ¬ÈÏÏî
+				//é€‰æ‹©æ³•æœ¯ä¸ºé»˜è®¤é¡¹
 				setDefault_magiclabel(magicname);
 				//System.out.println("color is:"+magicname.getBackground());
 				magicname.setBackground(new Color(0x4d,0x32,0xd7));
@@ -254,9 +254,9 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 		for(int i=mlistrow; i<length+mlistrow; i++){
 			Skill skill = dataManager.findSkillByName(magics[i]);
 			magicskills.add(skill);	
-			//System.out.println("·¨ÊõÃû is :"+index);
-			Label magicskill  = (Label) this.panel.findCompByName("·¨Êõ"+index);
-			Label magicname  = (Label) this.panel.findCompByName("·¨ÊõÃû"+index);
+			//System.out.println("æ³•æœ¯å is :"+index);
+			Label magicskill  = (Label) this.panel.findCompByName("æ³•æœ¯"+index);
+			Label magicname  = (Label) this.panel.findCompByName("æ³•æœ¯å"+index);
 			magicskill.setAnim(SpriteFactory.loadAnimation("wzife/skillmagic/small/"+
 			skill.getId()+".tcp"));
 			String magic_name = "    "+magics[i];
@@ -267,8 +267,8 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 			index++;
 		}
 		for(int i=length;i<3;i++){
-			Label magicskill  = (Label) this.panel.findCompByName("·¨Êõ"+i);
-			Label magicname  = (Label) this.panel.findCompByName("·¨ÊõÃû"+i);
+			Label magicskill  = (Label) this.panel.findCompByName("æ³•æœ¯"+i);
+			Label magicname  = (Label) this.panel.findCompByName("æ³•æœ¯å"+i);
 			magicskill.setAnim(SpriteFactory.loadAnimation(""));
 			magicname.setText("");
 			magicname.setOpaque(false);
@@ -284,7 +284,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 		skills = dataManager.findMainSkill(school);
 		for(int s=0; s<skills.size(); s++){
 			SkillMain skill = skills.get(s);
-			Label mainskill  = (Label) this.panel.findCompByName("¼¼ÄÜ"+s);
+			Label mainskill  = (Label) this.panel.findCompByName("æŠ€èƒ½"+s);
 			mainskill.setAnim(SpriteFactory.loadAnimation("wzife/skillmain/small/"+
 			skill.getId()+".tcp"));
 		}
@@ -315,7 +315,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 	}
 
 	/**
-	 * LABEL±³¾°ÉèÎªÍ¸Ã÷
+	 * LABELèƒŒæ™¯è®¾ä¸ºé€æ˜
 	 */
 	private void updateLabelBackground(){
 		for(Label label:labels){
@@ -348,7 +348,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 				UnifiedJEXL ujexl = new UnifiedJEXL(jexl);
 				expression = ujexl.parse(tpl);
 			} catch (Exception e) {
-				System.out.println("´´½¨JEXL±í´ïÊ½Ê§°Ü");
+				System.out.println("åˆ›å»ºJEXLè¡¨è¾¾å¼å¤±è´¥");
 				e.printStackTrace();
 			}
 		}
@@ -372,31 +372,31 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 	}
 	
 	private void processText(Skill skill) {
-		/*//¼¼ÄÜÃû³Æ
+		/*//æŠ€èƒ½åç§°
 		String sname = skill.getName();
-		Label skillname  = (Label) this.panel.findCompByName("¼¼ÄÜÃû³Æ");
+		Label skillname  = (Label) this.panel.findCompByName("æŠ€èƒ½åç§°");
         skillname.setText(sname);*/
-		//¼¼ÄÜËµÃ÷
+		//æŠ€èƒ½è¯´æ˜
         textrow = 0;
         skilldesc.setLength(0);
-		Label skilldes  = (Label) this.panel.findCompByName("¼¼ÄÜËµÃ÷");
+		Label skilldes  = (Label) this.panel.findCompByName("æŠ€èƒ½è¯´æ˜");
 		skilldes.setVerticalAlignment(JLabel.NORTH);
 		//labels.add(skilldes);
 		//labels.add(skillname);
-		//¼¼ÄÜÃèÊö
+		//æŠ€èƒ½æè¿°
 		String des = skill.getDescription();
 		skilldesc.append(linefeed(skilldes,des));			
-		//Ğ§¹û
+		//æ•ˆæœ
 		String effect = skill.getEffection();
 		if(!effect.equals("0")){
 			skilldesc.append(linefeed(skilldes,effect));
 		}
-		//Ê¹ÓÃÌõ¼ş
+		//ä½¿ç”¨æ¡ä»¶
 		if(skill.getConditions() != null){
 			String conditions = skill.getConditions();
 			skilldesc.append(linefeed(skilldes,conditions));
 		}			
-		//Ê¹ÓÃÏûºÄ
+		//ä½¿ç”¨æ¶ˆè€—
 		if(skill.getConsumption() != null){
 			String consumption = skill.getConsumption();
 			skilldesc.append(linefeed(skilldes,consumption));
@@ -408,7 +408,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
     /**
      * 
      * @param skilldes
-     * @desc ×Ô¶¯»»ĞĞ
+     * @desc è‡ªåŠ¨æ¢è¡Œ
      * @return 
     */
     private String linefeed(Label skilldes,String des){
@@ -456,7 +456,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 		e.consume();
 		switch(e.getButton()){
 			case MouseEvent.BUTTON1:
-				//×ó¼üµã»÷¼¼ÄÜÍ¼±ê
+				//å·¦é”®ç‚¹å‡»æŠ€èƒ½å›¾æ ‡
 			    processSkill(e);
 			    updateLabels(panel);
 				break;
@@ -469,7 +469,7 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
 			Label label = (Label)c;
 			String name = label.getName();
 			if(name.contains("skillLevel")){
-				//ÉèÖÃ±³¾°É«
+				//è®¾ç½®èƒŒæ™¯è‰²
 				updateLabelBackground();
 				Label mskillname = (Label) this.panel.findCompByName(name);
 				if(!default_skilllabel.equals(mskillname)){
@@ -479,8 +479,8 @@ public class learn_skill extends PanelHandler implements MouseListener,MouseMoti
                     default_skilllabel.setBackground(new Color(0x3d,0x31,0xd1));
 				}
 				
-			}else if(name.contains("·¨ÊõÃû")){
-				//ÉèÖÃ±³¾°É«
+			}else if(name.contains("æ³•æœ¯å")){
+				//è®¾ç½®èƒŒæ™¯è‰²
 				updateLabelBackground();
 				Label magicname = (Label) this.panel.findCompByName(name);
 				if(default_magiclabel != null){

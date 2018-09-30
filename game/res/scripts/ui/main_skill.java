@@ -62,7 +62,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 		textrow = 0;
 		for(int s=0; s<skills.size(); s++){
 			SkillMain skill = skills.get(s);
-			Label mainskill  = (Label) this.panel.findCompByName("ººƒ‹"+s);
+			Label mainskill  = (Label) this.panel.findCompByName("ÊäÄËÉΩ"+s);
 			Label mskilllevel  = (Label) this.panel.findCompByName("skill"+s);
 			mainskill.setAnim(SpriteFactory.loadAnimation("wzife/skillmain/normal/"+
 			skill.getId()+".tcp"));
@@ -73,8 +73,8 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 			labels.add(mskilllevel);
 		}
 		this.updateLabels(this.panel);
-		AbstractButton button_down = (AbstractButton)this.panel.findCompByName("œÚœ¬∞¥≈•");
-		AbstractButton button_up = (AbstractButton)this.panel.findCompByName("œÚ…œ∞¥≈•");
+		AbstractButton button_down = (AbstractButton)this.panel.findCompByName("Âêë‰∏ãÊåâÈíÆ");
+		AbstractButton button_up = (AbstractButton)this.panel.findCompByName("Âêë‰∏äÊåâÈíÆ");
 		buttons.add(button_up);
 		buttons.add(button_down);
 	}
@@ -84,7 +84,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 		skills = dataManager.findMainSkill(school);
 		/*for(int s=0; s<skills.size(); s++){
 			SkillMain skill = skills.get(s);
-			Label mainskill  = (Label) this.panel.findCompByName("ººƒ‹"+s);
+			Label mainskill  = (Label) this.panel.findCompByName("ÊäÄËÉΩ"+s);
 			mainskill.setAnim(SpriteFactory.loadAnimation("wzife/skillmain/normal/"+
 			skill.getId()+".tcp"));
 			mainskill.addMouseListener(this);
@@ -149,11 +149,11 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 	}
 	public void qjbm(ActionEvent evt) {
 		/*String fname = "wzife.wd2"
-		String background = "ΩÁ√Ê "+evt.getActionCommand();*/
+		String background = "ÁïåÈù¢ "+evt.getActionCommand();*/
 	}
 	public void text_down(ActionEvent evt){
 		if(!sb.toString().equals("")){
-			Label skilldes  = (Label) this.panel.findCompByName("ººƒ‹Àµ√˜");
+			Label skilldes  = (Label) this.panel.findCompByName("ÊäÄËÉΩËØ¥Êòé");
 			textrow++;
 			String tt = sb.toString();
 			for(int i=0; i<textrow; i++){
@@ -165,7 +165,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 		}	
 	}
 	public void text_up(ActionEvent event){
-		Label skilldes  = (Label) this.panel.findCompByName("ººƒ‹Àµ√˜");
+		Label skilldes  = (Label) this.panel.findCompByName("ÊäÄËÉΩËØ¥Êòé");
 		if(textrow>0){
 			textrow--;
 		}
@@ -202,9 +202,9 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 			Label label = (Label)c;
 			String name = label.getName();
 		
-			if(name.contains("ººƒ‹")){
+			if(name.contains("ÊäÄËÉΩ")){
 				int index = Integer.parseInt(name.substring(2));
-				String[] magics = skills.get(index).getMagicSkill().split("°¢");
+				String[] magics = skills.get(index).getMagicSkill().split("„ÄÅ");
 				magicskills.removeAll(magicskills);
                 int p = 0;
 				for(String magic:magics){
@@ -213,7 +213,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 					}
 					Skill skill = dataManager.findSkillByName(magic);
 					magicskills.add(skill);	
-					Label magicskill  = (Label) this.panel.findCompByName("∑® ı"+(p++));
+					Label magicskill  = (Label) this.panel.findCompByName("Ê≥ïÊúØ"+(p++));
 					magicskill.setAnim(SpriteFactory.loadAnimation("wzife/skillmagic/normal/"+
 					skill.getId()+".tcp"));	
 					magicskill.addMouseListener(this);
@@ -221,12 +221,12 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 					labels.add(magicskill);
 				}	
 				for(int i=p;i<13;i++){
-					Label magicskill  = (Label) this.panel.findCompByName("∑® ı"+i);
+					Label magicskill  = (Label) this.panel.findCompByName("Ê≥ïÊúØ"+i);
 					magicskill.setAnim(SpriteFactory.loadAnimation(""));
 				}
 				processText(skills.get(index));
 			}
-			else if(name.contains("∑® ı")){
+			else if(name.contains("Ê≥ïÊúØ")){
 				int index = Integer.parseInt(name.substring(2));
 				processText(magicskills.get(index));
 			}
@@ -235,31 +235,31 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 	}
 	
 	private void processText(Skill skill) {
-			//ººƒ‹√˚≥∆
+			//ÊäÄËÉΩÂêçÁß∞
 			String sname = skill.getName();
-			Label skillname  = (Label) this.panel.findCompByName("ººƒ‹√˚≥∆");
+			Label skillname  = (Label) this.panel.findCompByName("ÊäÄËÉΩÂêçÁß∞");
             skillname.setText(sname);
-			//ººƒ‹Àµ√˜
+			//ÊäÄËÉΩËØ¥Êòé
             textrow = 0;
             sb.setLength(0);
-			Label skilldes  = (Label) this.panel.findCompByName("ººƒ‹Àµ√˜");
+			Label skilldes  = (Label) this.panel.findCompByName("ÊäÄËÉΩËØ¥Êòé");
 			skilldes.setVerticalAlignment(JLabel.NORTH);
 			labels.add(skilldes);
 			labels.add(skillname);
-			//ººƒ‹√Ë ˆ
+			//ÊäÄËÉΩÊèèËø∞
 			String des = skill.getDescription();
 			sb.append(linefeed(skilldes,des));			
-			//–ßπ˚
+			//ÊïàÊûú
 			String effect = skill.getEffection();
 			if(!effect.equals("0")){
 				sb.append(linefeed(skilldes,effect));
 			}
-			// π”√Ãıº˛
+			//‰ΩøÁî®Êù°‰ª∂
 			if(skill.getConditions() != null){
 				String conditions = skill.getConditions();
                 sb.append(linefeed(skilldes,conditions));
 			}			
-			// π”√œ˚∫ƒ
+			//‰ΩøÁî®Ê∂àËÄó
 			if(skill.getConsumption() != null){
 				String consumption = skill.getConsumption();
                 sb.append(linefeed(skilldes,consumption));
@@ -271,7 +271,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 	/**
 	 * 
 	 * @param skilldes
-	 * @desc ◊‘∂Øªª––
+	 * @desc Ëá™Âä®Êç¢Ë°å
 	 * @return 
 	 */
 	private String linefeed(Label skilldes,String des){
@@ -314,7 +314,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 		e.consume();
 		switch(e.getButton()){
 			case MouseEvent.BUTTON1:
-				//◊Ûº¸µ„ª˜ººƒ‹Õº±Í
+				//Â∑¶ÈîÆÁÇπÂáªÊäÄËÉΩÂõæÊ†á
 			    processSkill(e);
 				break;
 		}
@@ -345,7 +345,7 @@ public class main_skill extends PanelHandler implements MouseListener,MouseMotio
 				UnifiedJEXL ujexl = new UnifiedJEXL(jexl);
 				expression = ujexl.parse(tpl);
 			} catch (Exception e) {
-				System.out.println("¥¥Ω®JEXL±Ì¥Ô Ω ß∞‹");
+				System.out.println("ÂàõÂª∫JEXLË°®ËææÂºèÂ§±Ë¥•");
 				e.printStackTrace();
 			}
 		}

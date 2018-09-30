@@ -19,7 +19,7 @@ import com.javaxyq.ui.Label;
 import com.javaxyq.ui.RichLabel;
 
 /**
- * ÈÎÎñÌáÊ¾¶Ô»°¿ò½Å±¾
+ * ä»»åŠ¡æç¤ºå¯¹è¯æ¡†è„šæœ¬
  * @author dewitt
  * @date 2009-11-27 create
  */
@@ -36,7 +36,7 @@ public class tasklist extends PanelHandler {
 	}
 	public void show_storyTask(ActionEvent evt) {
 		this.taskItem = "story";		RichLabel lblDetail =  (RichLabel) panel.findCompByName("lblTaskDetail");
-		lblDetail.setText("#Bµ±Ç°Ã»ÓĞ¾çÇéÈÎÎñ¡£");
+		lblDetail.setText("#Bå½“å‰æ²¡æœ‰å‰§æƒ…ä»»åŠ¡ã€‚");
 		Label lblSchoolTask = (Label) panel.findCompByName("lblSchoolTask");
 		Label lblStoryTask = (Label) panel.findCompByName("lblStoryTask");
 		lblSchoolTask.setForeground(Color.BLACK);
@@ -50,11 +50,11 @@ public class tasklist extends PanelHandler {
 			Task task = tasks.get(0);
 			int times = task.getInt("times");
 			int rounds = task.getInt("rounds");
-			String status = task.isFinished()?"£¬#RÒÑÍê³É#B":"";
+			String status = task.isFinished()?"ï¼Œ#Rå·²å®Œæˆ#B":"";
 			String taskdesc = application.getTaskManager().desc(task).replaceAll("#n","#B");
-			lblDetail.setText("#B"+taskdesc+"#r(µ±Ç°#R"+rounds+"#BÂÖ#R"+times+"#B´Î"+status+")");
+			lblDetail.setText("#B"+taskdesc+"#r(å½“å‰#R"+rounds+"#Bè½®#R"+times+"#Bæ¬¡"+status+")");
 		}else {
-			lblDetail.setText("#Bµ±Ç°Ã»ÓĞÊ¦ÃÅÈÎÎñ£¬ÇëÕÒÊ¦¸µÁìÈ¡¡£");
+			lblDetail.setText("#Bå½“å‰æ²¡æœ‰å¸ˆé—¨ä»»åŠ¡ï¼Œè¯·æ‰¾å¸ˆå‚…é¢†å–ã€‚");
 		}
 		Label lblSchoolTask = (Label) panel.findCompByName("lblSchoolTask");
 		Label lblStoryTask = (Label) panel.findCompByName("lblStoryTask");		lblSchoolTask.setForeground(Color.BLUE);
@@ -64,7 +64,7 @@ public class tasklist extends PanelHandler {
 		try {
 			this.invokeMethod0("show_"+taskItem+"Task", new ActionEvent(this,"show"));
 		} catch (Exception e) {
-			System.err.println("¸üĞÂÈÎÎñÁĞ±íÊ§°Ü£¡");
+			System.err.println("æ›´æ–°ä»»åŠ¡åˆ—è¡¨å¤±è´¥ï¼");
 			e.printStackTrace();
 		}
 	}

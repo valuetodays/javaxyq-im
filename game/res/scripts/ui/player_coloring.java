@@ -63,7 +63,7 @@ public class player_coloring extends PanelHandler {
 		String cmd = evt.getCommand();
 		Player player = context.getPlayer();
 		Sprite weapon = player.getWeapon();
-		//±ÜÃâÖØ¸´³õÊ¼»¯
+		//é¿å…é‡å¤åˆå§‹åŒ–
 		colorDialog = (Panel) evt.getSource();
 		textMaterial = (Label) colorDialog.findCompByName("textMaterial");
 		textCost = (Label) colorDialog.findCompByName("textCost");
@@ -77,7 +77,7 @@ public class player_coloring extends PanelHandler {
 		
 		animIndex = 0;
 		costs[0] = costs[1] = costs[2] = 0;
-		material = "²Ê¹û";
+		material = "å½©æœ";
 		btn1.setSelected(true);
 		this.selectionPart = 0;
 		character = new Sprite(player.getPerson());
@@ -94,38 +94,38 @@ public class player_coloring extends PanelHandler {
 	}
 	
 	/**
-	 * ÇĞ»»µ½Í·²¿
+	 * åˆ‡æ¢åˆ°å¤´éƒ¨
 	 * @param evt
 	 */
 	public void head(ActionEvent evt) {
-		material = "²Ê¹û";
+		material = "å½©æœ";
   		this.selectionPart = 0;
-		textMaterial.setText("ËùĞè" + material);
+		textMaterial.setText("æ‰€éœ€" + material);
   		textCost.setText("" + costs[selectionPart]);
 	}
 	/**
-	 * ÇĞ»»µ½Í·½í
+	 * åˆ‡æ¢åˆ°å¤´å·¾
 	 * @param evt
 	 */
 	public void hood(ActionEvent evt) {
-		material = "»¨¶¹";
+		material = "èŠ±è±†";
   		this.selectionPart = 1;
-		textMaterial.setText("ËùĞè" + material);
+		textMaterial.setText("æ‰€éœ€" + material);
   		textCost.setText("" + costs[selectionPart]);
 	}
 	/**
-	 * ÇĞ»»µ½ÒÂ·ş
+	 * åˆ‡æ¢åˆ°è¡£æœ
 	 * @param evt
 	 */
 	public void clothes(ActionEvent evt) {
-		material = "²Ê¹û";
+		material = "å½©æœ";
   		this.selectionPart = 2;
-		textMaterial.setText("ËùĞè" + material);
+		textMaterial.setText("æ‰€éœ€" + material);
   		textCost.setText("" + costs[selectionPart]);
 						
 	}
 	/**
-	 * ¸Ä±äÑÕÉ«
+	 * æ”¹å˜é¢œè‰²
 	 * @param evt
 	 */
 	public void coloring(ActionEvent evt) {
@@ -135,7 +135,7 @@ public class player_coloring extends PanelHandler {
 		int coloration = character.getColoration(selectionPart);
 		coloration = (coloration + 1) % count;
 		character.setColoration(selectionPart, coloration);
-		//FIXME È¾É«
+		//FIXME æŸ“è‰²
   		//ColorationUtil.recreate(character, "shape/"+player.getCharacter()+"/00.pp");
 		int[] colorations = character.getColorations();
 		character = SpriteFactory.loadSprite("/shape/char/"+player.getCharacter()+"/stand.tcp",colorations);
@@ -149,7 +149,7 @@ public class player_coloring extends PanelHandler {
 		textCost.setText("" + costs[selectionPart]);				
 	}
 	/**
-	 * ÈËÎï×ªÏò
+	 * äººç‰©è½¬å‘
 	 * @param evt
 	 */
 	public void turn(ActionEvent evt) {
@@ -172,7 +172,7 @@ public class player_coloring extends PanelHandler {
 		
 	}
 	/**
-	 * È·ÈÏÈ¾É«
+	 * ç¡®è®¤æŸ“è‰²
 	 * @param evt
 	 */
 	public void confirm(ActionEvent evt) {
@@ -182,10 +182,10 @@ public class player_coloring extends PanelHandler {
 		int[] colorations = character.getColorations();
 		int cost = costs[0]*50000 + costs[1]*10000 + costs[2]*100000;
 		if(player.getData().money < cost) {
-			doTalk(null,"Õâ¸öÈ¾É«·½°¸ĞèÒª"+cost+"Á½£¬ÄãÉíÉÏÒøÁ½²»¹»Ñ½£¿£¡#83");
+			doTalk(null,"è¿™ä¸ªæŸ“è‰²æ–¹æ¡ˆéœ€è¦"+cost+"ä¸¤ï¼Œä½ èº«ä¸Šé“¶ä¸¤ä¸å¤Ÿå‘€ï¼Ÿï¼#83");
 		}else {
 			player.getData().money -= cost;
-			doTalk(null,"¹²»¨·ÑÁË"+cost+"Á½£¬»¶Ó­ÏÂ´Î¹âÁÙ£¡#32");
+			doTalk(null,"å…±èŠ±è´¹äº†"+cost+"ä¸¤ï¼Œæ¬¢è¿ä¸‹æ¬¡å…‰ä¸´ï¼#32");
 			player.setColorations(colorations,true);
 			System.out.println("coloring: {" + colorations[0] + "," + colorations[1]+ "," + colorations[2] + "}");
 		}		

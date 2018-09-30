@@ -28,7 +28,7 @@ import com.javaxyq.util.StringUtils;
 import com.javaxyq.widget.Player;
 
 /**
- * ÈËÎï×´Ì¬´°¿Ú
+ * äººç‰©çŠ¶æ€çª—å£
  * @author dewitt
  * @date 2009-11-26 create
  */
@@ -38,7 +38,7 @@ public class player_status extends PanelHandler{
 	
 	public void initial(PanelEvent evt) {
 		super.initial(evt);
-		System.out.println("initial£ºplayer_status ");
+		System.out.println("initialï¼šplayer_status ");
 		this.updateLabels(panel);
 		this.setAutoUpdate(true);
 	}
@@ -83,7 +83,7 @@ public class player_status extends PanelHandler{
     	PlayerVO vo = player.getData();
 		long levelExp = dataManager.getLevelExp(vo.level);
 		if(vo.exp >= levelExp) {
-			helper.prompt( "¹§Ï²Äã£¬Éı¼¶¿©~~¼ÓÓÍ°É£¡", 2000);
+			helper.prompt( "æ­å–œä½ ï¼Œå‡çº§å’¯~~åŠ æ²¹å§ï¼", 2000);
 			player.playEffect("level_up",false);
 			MP3Player.play("sound/addon/level_up.mp3");
 			vo.level += 1;
@@ -100,20 +100,20 @@ public class player_status extends PanelHandler{
 			Panel panel = (Panel) button.getParent();
 			updateLabels(panel);
 		}else {
-			//¾­Ñé²»¹»
-			System.out.println("ÄãµÄ¾­ÑéÃ»´ïµ½Éı¼¶ËùĞèµÄ¾­Ñé");
-			helper.prompt( "ÄãµÄ¾­ÑéÃ»´ïµ½Éı¼¶ËùĞèµÄ¾­Ñé", 2000);
+			//ç»éªŒä¸å¤Ÿ
+			System.out.println("ä½ çš„ç»éªŒæ²¡è¾¾åˆ°å‡çº§æ‰€éœ€çš„ç»éªŒ");
+			helper.prompt( "ä½ çš„ç»éªŒæ²¡è¾¾åˆ°å‡çº§æ‰€éœ€çš„ç»éªŒ", 2000);
 			//MP3Player.play()
 		}
 	}
 
 	/**
-	 * Ôö¼ÓÊôĞÔµã
+	 * å¢åŠ å±æ€§ç‚¹
 	 * @param evt
 	 */
 	public void add_point(ActionEvent evt) {
 		System.out.println("add point: "+evt);
-		//È¡²ÎÊı , like 'add_point ÌåÖÊ'
+		//å–å‚æ•° , like 'add_point ä½“è´¨'
 		String attr = evt.getArgumentAsString(0);
 		Label label = (Label) panel.findCompByName(attr);
 		PlayerVO vo = context.getPlayer().getData();
@@ -128,12 +128,12 @@ public class player_status extends PanelHandler{
 	}
 	
 	/**
-	 * ¼õÉÙÊôĞÔµã
+	 * å‡å°‘å±æ€§ç‚¹
 	 * @param evt
 	 */
 	public void subtract_point(ActionEvent evt) {
 		System.out.println("subtract point: " + evt);
-		//È¡²ÎÊı , like 'add_point ÌåÖÊ'
+		//å–å‚æ•° , like 'add_point ä½“è´¨'
 		String attr = evt.getArgumentAsString(1);
 		Label label = (Label) panel.findCompByName(attr);
 		PlayerVO vo = context.getPlayer().getData();
@@ -154,7 +154,7 @@ public class player_status extends PanelHandler{
 	}
 	
 	public void changeTitle(ActionEvent evt) {
-		System.out.println("³ÆÎ½");
+		System.out.println("ç§°è°“");
 	}
 	
 	private void updateLabels(Panel panel) {
@@ -179,7 +179,7 @@ public class player_status extends PanelHandler{
 				UnifiedJEXL ujexl = new UnifiedJEXL(jexl);
 				expression = ujexl.parse(tpl);
 			} catch (Exception e) {
-				System.out.println("´´½¨JEXL±í´ïÊ½Ê§°Ü");
+				System.out.println("åˆ›å»ºJEXLè¡¨è¾¾å¼å¤±è´¥");
 				e.printStackTrace();
 			}
 		}

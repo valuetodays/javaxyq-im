@@ -36,7 +36,7 @@ public class mainwin extends PanelHandler implements ActionListener{
 
 	public void initial(PanelEvent evt) {
 		super.initial(evt);
-		System.out.println("initial£ºsystem.mainwin ");
+		System.out.println("initialï¼šsystem.mainwin ");
 		String charactorId = context.getPlayer().getCharacter();
 		Sprite sprite = SpriteFactory.loadSprite("wzife/photo/facesmall/"+charactorId+".tcp");
 		Button btnHeader = (Button) panel.findCompByName("btn_player_header");
@@ -79,14 +79,14 @@ public class mainwin extends PanelHandler implements ActionListener{
 		len = (int) (playerVO.getExp() * maxLen / dataManager.getLevelExp(playerVO.getLevel()));
 		expTrough.setSize(len, expTrough.getHeight());
 
-		// TODO summon×´Ì¬
-		// summonÆøÑª
-		// summonÄ§·¨
-		// summon¾­Ñé
+		// TODO summonçŠ¶æ€
+		// summonæ°”è¡€
+		// summoné­”æ³•
+		// summonç»éªŒ
 	}
 
 	/**
-	 * ¸üĞÂÈËÎï×ø±ê
+	 * æ›´æ–°äººç‰©åæ ‡
 	 */
 	private void updateCoords() {
 		GameCanvas canvas = context.getWindow().getCanvas();
@@ -101,81 +101,81 @@ public class mainwin extends PanelHandler implements ActionListener{
 	}
 	
 	/**
-	 * ²¹³äplayer_hp
+	 * è¡¥å……player_hp
 	 */
 	public void eke_player_hp(ActionEvent evt) {
-		//Èç¹ûµ±Ç°ÔÚÕ½¶·Ôò·µ»Ø
+		//å¦‚æœå½“å‰åœ¨æˆ˜æ–—åˆ™è¿”å›
 		if(application.getState() == Application.STATE_BATTLE) {
-			helper.prompt("[ÎÂÜ°ÌáÊ¾]Õ½¶·ÖĞ²»ÄÜ×Ô¶¯²¹³äÆøÑªÅ¶£¡",3000);
+			helper.prompt("[æ¸©é¦¨æç¤º]æˆ˜æ–—ä¸­ä¸èƒ½è‡ªåŠ¨è¡¥å……æ°”è¡€å“¦ï¼",3000);
 			return;
 		}
 		Player player = context.getPlayer();
 		PlayerVO data = player.getData();
-		int reqHp = data.maxHp - data.hp;//ĞèÒª²¹³äµÄÆøÑªÁ¿
-		//²éÕÒ¿ÉÒÔ²¹³äÆøÑªµÄÒ©Æ·
+		int reqHp = data.maxHp - data.hp;//éœ€è¦è¡¥å……çš„æ°”è¡€é‡
+		//æŸ¥æ‰¾å¯ä»¥è¡¥å……æ°”è¡€çš„è¯å“
 		ItemInstance[] items = dataManager.findItems(player,ItemTypes.TYPE_MEDICINE_HP);
 		Arrays.sort(items,new MedicineItemComparator(ItemTypes.TYPE_MEDICINE_HP));
 		for (int i = 0; i < items.length; i++) {
 			ItemInstance item = items[i];
 			while(reqHp > 0 && item.getLevel() <3 && item.getAmount() > 0) {
-				System.out.println("Ê¹ÓÃÒ»¸öÒ©Æ·£º"+item.getName());
+				System.out.println("ä½¿ç”¨ä¸€ä¸ªè¯å“ï¼š"+item.getName());
 				application.getItemManager().useItem(player, item);
 				reqHp = data.maxHp - data.hp;
 			}
 			if(reqHp == 0) {
-				System.out.println("ÆøÑª²¹³äÍê±Ï£¡");
+				System.out.println("æ°”è¡€è¡¥å……å®Œæ¯•ï¼");
 				break;
 			}
 		}
 	}
 	
 	/**
-	 * ²¹³äplayer_mpÖµ
+	 * è¡¥å……player_mpå€¼
 	 * @param evt
 	 */
 	public void eke_player_mp(ActionEvent evt) {
-		//Èç¹ûµ±Ç°ÔÚÕ½¶·Ôò·µ»Ø
+		//å¦‚æœå½“å‰åœ¨æˆ˜æ–—åˆ™è¿”å›
 		if(application.getState() == Application.STATE_BATTLE) {
-			helper.prompt("[ÎÂÜ°ÌáÊ¾]Õ½¶·ÖĞ²»ÄÜ×Ô¶¯²¹³ä·¨Á¦Å¶£¡",3000);
+			helper.prompt("[æ¸©é¦¨æç¤º]æˆ˜æ–—ä¸­ä¸èƒ½è‡ªåŠ¨è¡¥å……æ³•åŠ›å“¦ï¼",3000);
 			return;
 		}
 		Player player = context.getPlayer();
 		PlayerVO data = player.getData();
-		int reqMp = data.maxMp - data.mp;//ĞèÒª²¹³äµÄÆøÑªÁ¿
-		//²éÕÒ¿ÉÒÔ²¹³äÆøÑªµÄÒ©Æ·
+		int reqMp = data.maxMp - data.mp;//éœ€è¦è¡¥å……çš„æ°”è¡€é‡
+		//æŸ¥æ‰¾å¯ä»¥è¡¥å……æ°”è¡€çš„è¯å“
 		ItemInstance[] items = dataManager.findItems(player,ItemTypes.TYPE_MEDICINE_MP);
 		Arrays.sort(items,new MedicineItemComparator(ItemTypes.TYPE_MEDICINE_MP));
 		for (int i = 0; i < items.length; i++) {
 			ItemInstance item = items[i];
 			while(reqMp > 0 && item.getLevel() <3 && item.getAmount() > 0) {
-				System.out.println("Ê¹ÓÃÒ»¸öÒ©Æ·£º"+item.getName());
+				System.out.println("ä½¿ç”¨ä¸€ä¸ªè¯å“ï¼š"+item.getName());
 				application.getItemManager().useItem(player, item);
 				reqMp = data.maxMp - data.mp;
 			}
 			if(reqMp == 0) {
-				System.out.println("·¨Á¦²¹³äÍê±Ï£¡");
+				System.out.println("æ³•åŠ›è¡¥å……å®Œæ¯•ï¼");
 				break;
 			}
 		}
 	}
 	
 	/**
-	 * ²¹³äsummonÆøÑª
+	 * è¡¥å……summonæ°”è¡€
 	 */
 	public void eke_summon_hp(ActionEvent evt) {
-		System.out.println("²¹³äsummonÆøÑª");
+		System.out.println("è¡¥å……summonæ°”è¡€");
 	}
 	
 	/**
-	 * ²¹³äsummonÄ§·¨Öµ
+	 * è¡¥å……summoné­”æ³•å€¼
 	 * @param evt
 	 */
 	public void eke_summoned_mp(ActionEvent evt) {
-		System.out.println("²¹³äsummonÄ§·¨");
+		System.out.println("è¡¥å……summoné­”æ³•");
 	}
 
 	/**
-	 * È«ÆÁÇĞ»»
+	 * å…¨å±åˆ‡æ¢
 	 * @param evt
 	 */
 	public void fullscreen(ActionEvent evt) {
@@ -194,7 +194,7 @@ public class mainwin extends PanelHandler implements ActionListener{
 		helper.showHideDialog("player_status");
 	}
 	/**
-	 * ÊäÈëÁÄÌìÄÚÈİ
+	 * è¾“å…¥èŠå¤©å†…å®¹
 	 * @param evt
 	 */
 	public void chat(ActionEvent evt) {
@@ -222,13 +222,13 @@ public class mainwin extends PanelHandler implements ActionListener{
 		helper.showHideDialog("tasklist");		
 	}
 	/**
-	 * ´ò¿ª°ïÅÉ
+	 * æ‰“å¼€å¸®æ´¾
 	 * @param evt
 	 */
 	public void open_org(ActionEvent evt) {
 	}
 	/**
-	 * ·¨Êõ¿ì½İÀ¸
+	 * æ³•æœ¯å¿«æ·æ 
 	 * @param evt
 	 */
 	public void quick_magic(ActionEvent evt) {
@@ -236,20 +236,20 @@ public class mainwin extends PanelHandler implements ActionListener{
 	public void friend_list(ActionEvent evt) {
 	}
 	/**
-	 * ÈËÎï¶¯×÷
+	 * äººç‰©åŠ¨ä½œ
 	 * @param evt
 	 */
 	public void open_motion(ActionEvent evt) {
 	}
 	/**
-	 * ÏµÍ³ÉèÖÃ
+	 * ç³»ç»Ÿè®¾ç½®
 	 * @param evt
 	 */
 	public void system_setting(ActionEvent evt) {		
 		helper.showHideDialog("game_exit");		
 	}
 	/**
-	 * ÆµµÀÑ¡Ôñ
+	 * é¢‘é“é€‰æ‹©
 	 * @param evt
 	 */
 	public void change_channel(ActionEvent evt) {

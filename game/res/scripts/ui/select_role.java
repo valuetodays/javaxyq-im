@@ -26,7 +26,7 @@ import com.javaxyq.ui.UIHelper;
 import com.javaxyq.widget.Animation;
 
 /**
- * ÓÎÏ·Ö÷²Ëµ¥
+ * æ¸¸æˆä¸»èœå•
  * @author gongdewei
  * @date 2011-5-2 create
  */
@@ -67,9 +67,9 @@ public class select_role extends PanelHandler implements MouseListener {
 //			application.loadProfile(profileName);
 //			loaded = true;
 //		} catch (ProfileException e) {
-//			System.err.println("¼ÓÔØÓÎÏ·´æµµÊ§°Ü!"+profileName);
+//			System.err.println("åŠ è½½æ¸¸æˆå­˜æ¡£å¤±è´¥!"+profileName);
 //			e.printStackTrace();
-//			application.getUIHelper().prompt("¼ÓÔØÓÎÏ·´æµµÊ§°Ü!", 3000);
+//			application.getUIHelper().prompt("åŠ è½½æ¸¸æˆå­˜æ¡£å¤±è´¥!", 3000);
 //		}
 //	}
 	
@@ -100,9 +100,9 @@ public class select_role extends PanelHandler implements MouseListener {
 			application.loadProfile(profileName);
 			application.enterScene();
 		} catch (ProfileException e) {
-			System.err.println("¼ÓÔØÓÎÏ·´æµµÊ§°Ü!");
+			System.err.println("åŠ è½½æ¸¸æˆå­˜æ¡£å¤±è´¥!");
 			e.printStackTrace();
-			application.getUIHelper().prompt("¼ÓÔØÓÎÏ·´æµµÊ§°Ü!", 3000);
+			application.getUIHelper().prompt("åŠ è½½æ¸¸æˆå­˜æ¡£å¤±è´¥!", 3000);
 		}
 	}
 
@@ -114,12 +114,12 @@ public class select_role extends PanelHandler implements MouseListener {
 				Animation anim = SpriteFactory.loadAnimation("/shape/char/"+data.character+"/stand.tcp");
 				profileLabels.get(i).setAnim(anim);
 				profileLabels.get(i).setSize(90, 120);
-				//×°ÉÏÎäÆ÷
+				//è£…ä¸Šæ­¦å™¨
 				ItemInstance weaponItem = profiles.get(i).getItems()[2];
 				if(weaponItem != null) {
 					//weaponItem.getType()
 					//if(ItemTypes.isType(weaponItem.getItem(), ItemTypes.TYPE_WEAPON)){
-						//TODO ×°ÉÏÎäÆ÷
+						//TODO è£…ä¸Šæ­¦å™¨
 						//player.takeupWeapon((WeaponItem) weaponItem.getItem());
 						//System.out.println("takeup weapon: "+weaponItem.getItem());
 					//}			
@@ -149,24 +149,24 @@ public class select_role extends PanelHandler implements MouseListener {
 		if(anim != null) {
 			label.setAnim(anim);
 		}
-		System.out.println("select£º"+profile);
+		System.out.println("selectï¼š"+profile);
 	}
 
 	private String getCharacterName(String character) {
 		if(charNames == null) {
 			charNames= new HashMap<String, String>();
-			charNames.put("0001", "åĞÒ£Éú");
-			charNames.put("0002", "½£ÏÀ¿Í");
-			charNames.put("0003", "·ÉÑàÅ®");
-			charNames.put("0004", "Ó¢Å®ÏÀ");
-			charNames.put("0005", "¾ŞÄ§Íõ");
-			charNames.put("0006", "»¢Í·¹Ö");
-			charNames.put("0007", "ºüÃÀÈË");
-			charNames.put("0008", "¹Ç¾«Áé");
-			charNames.put("0009", "ÉñÌì±ø");
-			charNames.put("0010", "ÁúÌ«×Ó");
-			charNames.put("0011", "ÎèÌì¼§");
-			charNames.put("0012", "Ğş²Ê¶ğ");
+			charNames.put("0001", "é€é¥ç”Ÿ");
+			charNames.put("0002", "å‰‘ä¾ å®¢");
+			charNames.put("0003", "é£ç‡•å¥³");
+			charNames.put("0004", "è‹±å¥³ä¾ ");
+			charNames.put("0005", "å·¨é­”ç‹");
+			charNames.put("0006", "è™å¤´æ€ª");
+			charNames.put("0007", "ç‹ç¾äºº");
+			charNames.put("0008", "éª¨ç²¾çµ");
+			charNames.put("0009", "ç¥å¤©å…µ");
+			charNames.put("0010", "é¾™å¤ªå­");
+			charNames.put("0011", "èˆå¤©å§¬");
+			charNames.put("0012", "ç„å½©å¨¥");
 		}
 		return charNames.get(character);
 	}

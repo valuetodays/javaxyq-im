@@ -26,7 +26,7 @@ import com.javaxyq.widget.Player;
 import com.javaxyq.widget.Sprite;
 import com.javaxyq.widget.SpriteImage;
 /**
- * ³¡¾°Ğ¡µØÍ¼¶Ô»°¿ò½Å±¾
+ * åœºæ™¯å°åœ°å›¾å¯¹è¯æ¡†è„šæœ¬
  * @author dewitt
  * @date 2009-11-27 create
  */
@@ -42,11 +42,11 @@ public class scene_map extends PanelHandler implements MouseListener{
 	private Label lblTarget = new Label(animTarget);
 	private List<Label> steps = new ArrayList<Label>();
 	
-	/** ËõÂÔÍ¼¿í¶È */
+	/** ç¼©ç•¥å›¾å®½åº¦ */
 	private int navWidth;
-	/** ËõÂÔÍ¼¸ß¶È */
+	/** ç¼©ç•¥å›¾é«˜åº¦ */
 	private int navHeight;
-	/** ËõĞ¡±ÈÀı */
+	/** ç¼©å°æ¯”ä¾‹ */
 	private double rateX;
 	private double rateY;
 	private SceneCanvas canvas;
@@ -78,12 +78,12 @@ public class scene_map extends PanelHandler implements MouseListener{
 		Player player = context.getPlayer();
 		Point playerLoc = player.getSceneLocation();
 		Point p0 = sceneToLocal(playerLoc);
-		//FIXME ĞŞ¸´µ¥Ö¡Æ«ÒÆÎ»ÖÃÎÊÌâ
+		//FIXME ä¿®å¤å•å¸§åç§»ä½ç½®é—®é¢˜
 		p0.translate(-animPoint.getRefPixelX(),-animPoint.getRefPixelY());
 		lblPoint.setLocation(p0);
 		panel.add(lblPoint);
-		//ÒÆ³ıÂ·ÏßµÄµã
-		//TODO ½â¾öÉÁË¸ÎÊÌâ
+		//ç§»é™¤è·¯çº¿çš„ç‚¹
+		//TODO è§£å†³é—ªçƒé—®é¢˜
 		for (Label l : steps) {			
 			panel.remove(l);
 		}
@@ -103,7 +103,7 @@ public class scene_map extends PanelHandler implements MouseListener{
 				steps.add(lblWpoint);
 				panel.add(lblWpoint);
 			}
-		}else if(!steps.isEmpty()){//Íê³ÉÒÆ¶¯
+		}else if(!steps.isEmpty()){//å®Œæˆç§»åŠ¨
 			steps.clear();
 			panel.remove(lblTarget);
 			panel.close();

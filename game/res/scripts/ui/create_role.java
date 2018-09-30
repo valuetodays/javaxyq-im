@@ -31,7 +31,7 @@ import com.javaxyq.ui.TextField;
 import com.javaxyq.widget.Animation;
 
 /**
- * ÓÎÏ·Ö÷²Ëµ¥
+ * æ¸¸æˆä¸»èœå•
  * @author gongdewei
  * @date 2011-5-2 create
  */
@@ -40,12 +40,12 @@ public class create_role extends PanelHandler {
 	private String character = "0003";
 	private String roleName;
 	private static String[] attr_points = {"physique", "magic", "strength", "durability", "agility"};
-	private static String[] ÈË×å = {"0001","0002","0003","0004"};
-	private static String[] Ä§×å = {"0005","0006","0007","0008"};
-	private static String[] ÏÉ×å = {"0009","0010","0011","0012"};
-	private static int[] ÈË×å³õÊ¼ÊôĞÔµã = {10, 10, 10, 10, 10};
-	private static int[] Ä§×å³õÊ¼ÊôĞÔµã = {12, 11, 11, 8, 8};
-	private static int[] ÏÉ×å³õÊ¼ÊôĞÔµã = {12, 5, 11, 12, 10};
+	private static String[] äººæ— = {"0001","0002","0003","0004"};
+	private static String[] é­”æ— = {"0005","0006","0007","0008"};
+	private static String[] ä»™æ— = {"0009","0010","0011","0012"};
+	private static int[] äººæ—åˆå§‹å±æ€§ç‚¹ = {10, 10, 10, 10, 10};
+	private static int[] é­”æ—åˆå§‹å±æ€§ç‚¹ = {12, 11, 11, 8, 8};
+	private static int[] ä»™æ—åˆå§‹å±æ€§ç‚¹ = {12, 5, 11, 12, 10};
 	
 	public void initial(PanelEvent evt) {
 		super.initial(evt);
@@ -53,7 +53,7 @@ public class create_role extends PanelHandler {
 	}	
 	
 	/**
-	 * ÅĞ¶ÏÊı×éarrayÊÇ·ñ°üº¬Öµvalue
+	 * åˆ¤æ–­æ•°ç»„arrayæ˜¯å¦åŒ…å«å€¼value
 	 * @return
 	 */
 	private static boolean inArray(String[] array, String value) {
@@ -63,10 +63,10 @@ public class create_role extends PanelHandler {
 		return false;
 	}
 	
-	private static void init_ÊôĞÔµã(PlayerVO playerVo,int[] ³õÊ¼ÊôĞÔµã){
+	private static void init_å±æ€§ç‚¹(PlayerVO playerVo,int[] åˆå§‹å±æ€§ç‚¹){
 		for(int i=0; i<attr_points.length;i++){
 				try {
-					PropertyUtils.setProperty(playerVo, attr_points[i], ³õÊ¼ÊôĞÔµã[i]);
+					PropertyUtils.setProperty(playerVo, attr_points[i], åˆå§‹å±æ€§ç‚¹[i]);
 				} catch (IllegalAccessException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -101,7 +101,7 @@ public class create_role extends PanelHandler {
 		TextField field = (TextField) panel.findCompByName("role_name");
 		roleName = field.getText();
 		if(roleName.trim().length() == 0) {
-			helper.prompt("ÇëÔÚ×óÏÂ½ÇÊäÈë¿òÄÚÌîĞ´ÈËÎïµÄĞÕÃû£¡", 3000);
+			helper.prompt("è¯·åœ¨å·¦ä¸‹è§’è¾“å…¥æ¡†å†…å¡«å†™äººç‰©çš„å§“åï¼", 3000);
 			return;
 		}
 		try {
@@ -114,23 +114,23 @@ public class create_role extends PanelHandler {
 			playerVo.setName(roleName);
 			playerVo.setSceneLocation(new Point(38, 20));
 			playerVo.setMoney(1500000);
-			if(inArray(ÈË×å,playerVo.character)) {			
-				init_ÊôĞÔµã(playerVo, ÈË×å³õÊ¼ÊôĞÔµã);
-			}else if(inArray(Ä§×å,playerVo.character)) {
-				init_ÊôĞÔµã(playerVo, Ä§×å³õÊ¼ÊôĞÔµã);
-			}else if(inArray(ÏÉ×å,playerVo.character)) {
-				init_ÊôĞÔµã(playerVo, ÏÉ×å³õÊ¼ÊôĞÔµã);
+			if(inArray(äººæ—,playerVo.character)) {			
+				init_å±æ€§ç‚¹(playerVo, äººæ—åˆå§‹å±æ€§ç‚¹);
+			}else if(inArray(é­”æ—,playerVo.character)) {
+				init_å±æ€§ç‚¹(playerVo, é­”æ—åˆå§‹å±æ€§ç‚¹);
+			}else if(inArray(ä»™æ—,playerVo.character)) {
+				init_å±æ€§ç‚¹(playerVo, ä»™æ—åˆå§‹å±æ€§ç‚¹);
 			}
 			dataManager.recalcProperties(playerVo);
 			
 			ItemInstance[] items = new ItemInstance[26];
-			ItemInstance item = dataManager.createItem("ËÄÒ¶»¨",99);
+			ItemInstance item = dataManager.createItem("å››å¶èŠ±",99);
 			addItem(items, item);
-			item = dataManager.createItem("·ğÊÖ",99);
+			item = dataManager.createItem("ä½›æ‰‹",99);
 			addItem(items, item);
-			item = dataManager.createItem("ÑªÉ«²è»¨",99);
+			item = dataManager.createItem("è¡€è‰²èŒ¶èŠ±",99);
 			addItem(items, item);
-			item = dataManager.createItem("¾ÅÏã³æ",99);
+			item = dataManager.createItem("ä¹é¦™è™«",99);
 			addItem(items, item);
 			createWeapon(character, items);
 			
@@ -139,15 +139,15 @@ public class create_role extends PanelHandler {
 			profile.setItems(items);
 			profileManager.saveProfile(profile);
 			
-			helper.prompt("ÈËÎï´´½¨³É¹¦£¡", 3000);
+			helper.prompt("äººç‰©åˆ›å»ºæˆåŠŸï¼", 3000);
 			try {
 				String profileName = profile.getName();
 				application.loadProfile(profileName);
 				application.enterScene();
 			} catch (ProfileException e) {
-				System.err.println("¼ÓÔØÓÎÏ·´æµµÊ§°Ü!");
+				System.err.println("åŠ è½½æ¸¸æˆå­˜æ¡£å¤±è´¥!");
 				e.printStackTrace();
-				helper.prompt("¼ÓÔØÓÎÏ·´æµµÊ§°Ü!", 3000);
+				helper.prompt("åŠ è½½æ¸¸æˆå­˜æ¡£å¤±è´¥!", 3000);
 			}
 			
 		} catch (ProfileException e) {
@@ -178,17 +178,17 @@ public class create_role extends PanelHandler {
 		}else {
 			System.err.println("displayRoleInfo failed: "+filename);
 		}
-		//TODO ¸üĞÂÆäËüĞÅÏ¢
+		//TODO æ›´æ–°å…¶å®ƒä¿¡æ¯
 		
 	}	
 	
 	private void createWeapon(String charName, ItemInstance[] items) {
-		//·ÖÅäÎäÆ÷
+		//åˆ†é…æ­¦å™¨
 		String[] weaponNames = null;
 		if(CharacterUtils.char_0001.equals(charName)) {
-			weaponNames = new String[] {"ÇàÍ­¶Ì½£","åĞÒ£½­ºş"};
+			weaponNames = new String[] {"é’é“œçŸ­å‰‘","é€é¥æ±Ÿæ¹–"};
 		}else if(CharacterUtils.char_0002.equals(charName)) {
-			weaponNames = new String[] {"ÁøÒ¶µ¶"};
+			weaponNames = new String[] {"æŸ³å¶åˆ€"};
 		}else if(CharacterUtils.char_0003.equals(charName)) {
 		}else if(CharacterUtils.char_0004.equals(charName)) {
 		}else if(CharacterUtils.char_0005.equals(charName)) {
@@ -196,9 +196,9 @@ public class create_role extends PanelHandler {
 		}else if(CharacterUtils.char_0007.equals(charName)) {
 		}else if(CharacterUtils.char_0008.equals(charName)) {
 		}else if(CharacterUtils.char_0009.equals(charName)) {
-			weaponNames = new String[] {"Îå»¢¶Ï»ê"};
+			weaponNames = new String[] {"äº”è™æ–­é­‚"};
 		}else if(CharacterUtils.char_0010.equals(charName)) {
-			weaponNames = new String[] {"ºìÓ§Ç¹","Îå»¢¶Ï»ê","åĞÒ£½­ºş"};
+			weaponNames = new String[] {"çº¢ç¼¨æª","äº”è™æ–­é­‚","é€é¥æ±Ÿæ¹–"};
 		}else if(CharacterUtils.char_0011.equals(charName)) {
 		}else if(CharacterUtils.char_0012.equals(charName)) {
 		}

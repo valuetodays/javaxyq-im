@@ -17,7 +17,7 @@ import com.javaxyq.event.PanelHandler;
 import com.javaxyq.ui.UIHelper;
 
 /**
- * 退出游戏对话框脚本
+ * 閫�鍑烘父鎴忓璇濇鑴氭湰
  * @author dewitt
  * @date 2009-11-27 create
  */

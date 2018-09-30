@@ -19,7 +19,7 @@ import com.javaxyq.profile.ProfileException;
 import com.javaxyq.ui.Button;
 
 /**
- * ÍË³öÓÎÏ·¶Ô»°¿ò½Å±¾
+ * é€€å‡ºæ¸¸æˆå¯¹è¯æ¡†è„šæœ¬
  * @author dewitt
  * @date 2009-11-27 create
  */
@@ -53,11 +53,11 @@ public class game_exit extends PanelHandler {
 		application.getScriptEngine().setDebug(application.isDebug());
 		Button btn = (Button) panel.findCompByName("debugbtn");
 		if(application.isDebug()) {
-			System.out.println("ÒÑ´ò¿ªÓÎÏ·µ÷ÊÔ");
-			btn.setText("¹Ø±Õµ÷ÊÔ");
+			System.out.println("å·²æ‰“å¼€æ¸¸æˆè°ƒè¯•");
+			btn.setText("å…³é—­è°ƒè¯•");
 		}else {
-			System.out.println("ÒÑ¹Ø±ÕÓÎÏ·µ÷ÊÔ");
-			btn.setText("´ò¿ªµ÷ÊÔ");
+			System.out.println("å·²å…³é—­æ¸¸æˆè°ƒè¯•");
+			btn.setText("æ‰“å¼€è°ƒè¯•");
 		}
 	}
 	
@@ -65,11 +65,11 @@ public class game_exit extends PanelHandler {
 		GameMain.setPlayingMusic(!GameMain.isPlayingMusic());
 		Button btn = (Button) panel.findCompByName("musicbtn");
 		if(GameMain.isPlayingMusic()) {
-			btn.setText("¹Ø±ÕÒôÀÖ");
-			System.out.println("´ò¿ªÓÎÏ·±³¾°ÒôÀÖ");
+			btn.setText("å…³é—­éŸ³ä¹");
+			System.out.println("æ‰“å¼€æ¸¸æˆèƒŒæ™¯éŸ³ä¹");
 		}else {
-			btn.setText("´ò¿ªÒôÀÖ");
-			System.out.println("¹Ø±ÕÓÎÏ·±³¾°ÒôÀÖ");
+			btn.setText("æ‰“å¼€éŸ³ä¹");
+			System.out.println("å…³é—­æ¸¸æˆèƒŒæ™¯éŸ³ä¹");
 		}
 	}
 	
@@ -78,7 +78,7 @@ public class game_exit extends PanelHandler {
 			application.saveProfile();
 		} catch (ProfileException e) {
 			e.printStackTrace();
-			application.getUIHelper().prompt("±£´æÓÎÏ·Ê§°Ü£¡", 3000);
+			application.getUIHelper().prompt("ä¿å­˜æ¸¸æˆå¤±è´¥ï¼", 3000);
 		}
 	}
 }

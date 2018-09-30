@@ -46,7 +46,7 @@ public class battle_warmagic10 extends PanelHandler {
 		};
 		
 		String[] magicIds = {"0326","0327","0328","0329"};
-		String[] magicNames = {"À×»÷","ÂäÑÒ","Ë®¹¥","ÁÒ»ğ"};
+		String[] magicNames = {"é›·å‡»","è½å²©","æ°´æ”»","çƒˆç«"};
 		for (int i = 0; i < magicIds.length; i++) {
 			Animation anim = SpriteFactory.loadAnimation("/wzife/magic/normal/"+magicIds[i]+".tcp");
 			Label label = (Label) panel.findCompByName("magic"+(i+1));

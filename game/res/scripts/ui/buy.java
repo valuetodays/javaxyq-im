@@ -27,7 +27,7 @@ import com.javaxyq.ui.Label;
 import com.javaxyq.ui.TextField;
 import com.javaxyq.ui.UIHelper;
 /**
- * ¹ºÂò¶Ô»°¿ò½Å±¾
+ * è´­ä¹°å¯¹è¯æ¡†è„šæœ¬
  * @author dewitt
  * @date 2009-11-27 create
  */
@@ -47,9 +47,9 @@ public class buy extends PanelHandler implements MouseListener,MouseMotionListen
 		super.initial(evt);
 		selectedBorder = new Label(SpriteFactory.loadAnimation("wzife/button/itemselected.tcp"));
 		selectingBorder = new Label(SpriteFactory.loadAnimation("wzife/button/itemselecting.tcp"));
-		//³õÊ¼»¯ÎïÆ·
-		String[] items = {"ËÄÒ¶»¨","ÆßÒ¶Á«","ÌìÇàµØ°×","²İ¹û","¾ÅÏã³æ","Ë®»ÆÁ«","×Ïµ¤ÂŞ","·ğÊÖ","Ğı¸´»¨","°ÙÉ«»¨",
-		             "ÏãÒ¶","ÁúĞë²İ","ÁéÖ¬","°×Óñ¹ÇÍ·","¹íÇĞ²İ","ÂüÙ¢ÂŞ»¨","É½Ò©","°Ë½ÇÁ«Ò¶","ÈË²Î","ÔÂ¼û²İ"};
+		//åˆå§‹åŒ–ç‰©å“
+		String[] items = {"å››å¶èŠ±","ä¸ƒå¶è²","å¤©é’åœ°ç™½","è‰æœ","ä¹é¦™è™«","æ°´é»„è²","ç´«ä¸¹ç½—","ä½›æ‰‹","æ—‹å¤èŠ±","ç™¾è‰²èŠ±",
+		             "é¦™å¶","é¾™é¡»è‰","çµè„‚","ç™½ç‰éª¨å¤´","é¬¼åˆ‡è‰","æ›¼ä½—ç½—èŠ±","å±±è¯","å…«è§’è²å¶","äººå‚","æœˆè§è‰"};
 		int x0 = 8, y0 = 36;
 		int rows = 4, cols = 5;
 		for(int y =0;y<rows;y++) {
@@ -83,13 +83,13 @@ public class buy extends PanelHandler implements MouseListener,MouseMotionListen
 		update(null);
 		int money = context.getPlayer().getData().getMoney();
 		if(money < totalCost) {
-			doTalk(context.getTalker(),"×Ü¹²ĞèÒª#R"+totalCost+"#nÁ½£¬ÄãµÄÏÖ½ğ²»¹»Ñ½£¿£¡");
+			doTalk(context.getTalker(),"æ€»å…±éœ€è¦#R"+totalCost+"#nä¸¤ï¼Œä½ çš„ç°é‡‘ä¸å¤Ÿå‘€ï¼Ÿï¼");
 		}else {
 			money -= totalCost;
 			context.getPlayer().getData().money = money;
 			ItemInstance item = new ItemInstance(selectedItem.getItem(),amount);
 			dataManager.addItemToPlayerBag(context.getPlayer(),item);
-			doTalk(context.getTalker(),"Äã¹ºÂòÁË"+amount+"¸ö"+selectedItem.getName()+"£¬×Ü¹²»¨·ÑÁË#R"+totalCost+"#nÁ½¡£#32");
+			doTalk(context.getTalker(),"ä½ è´­ä¹°äº†"+amount+"ä¸ª"+selectedItem.getName()+"ï¼Œæ€»å…±èŠ±è´¹äº†#R"+totalCost+"#nä¸¤ã€‚#32");
 			System.out.println( "buy "+selectedItem.getName()+"*"+amount+", cost "+totalCost);
 		}	}
 	private void setSelectedItem(ItemInstance item) {

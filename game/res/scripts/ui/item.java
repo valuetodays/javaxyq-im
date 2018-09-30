@@ -42,7 +42,7 @@ import com.javaxyq.util.StringUtils;
 import com.javaxyq.widget.Player;
 
 /**
- * µÀ¾ßĞĞÄÒ¶Ô»°¿ò½Å±¾
+ * é“å…·è¡Œå›Šå¯¹è¯æ¡†è„šæœ¬
  * @author dewitt
  * @date 2009-11-27 create
  */
@@ -96,7 +96,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 	}
 	
 	/**
-	 * ×°ÉÏ×°±¸À¸
+	 * è£…ä¸Šè£…å¤‡æ 
 	 */
 	private void takeupEquipment(ItemInstance item){
 		//----|-----
@@ -129,7 +129,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 	}
 	
 	/**
-	 * ´Ó×°±¸À¸Ğ¶ÏÂ
+	 * ä»è£…å¤‡æ å¸ä¸‹
 	 * @param item
 	 */
 	private void takeoffEquipment(ItemInstance item){
@@ -144,12 +144,12 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 		dataManager.addItemToPlayerBag(player, item);
 	}
 	
-	 /* Ïú»ÙÎïÆ·
+	 /* é”€æ¯ç‰©å“
 	 * @param evt
 	 */
 	public void destory_item(ActionEvent evt){
-		if(selItemLabel==null) {//Î´Ñ¡ÔñÎïÆ·
-			context.getWindow().getHelper().prompt("ÇëÏÈÑ¡ÔñÒªÏú»ÙµÄÎïÆ·£¬È»ºóÔÙµã»÷¡¾Ïú»Ù¡¿°´Å¥¡£", 3000);
+		if(selItemLabel==null) {//æœªé€‰æ‹©ç‰©å“
+			context.getWindow().getHelper().prompt("è¯·å…ˆé€‰æ‹©è¦é”€æ¯çš„ç‰©å“ï¼Œç„¶åå†ç‚¹å‡»ã€é”€æ¯ã€‘æŒ‰é’®ã€‚", 3000);
 			return;
 		}
 		dataManager.removeItemFromPlayer(context.getPlayer(), selectedIndex);
@@ -159,7 +159,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 	}
 	
 	/**
-	 * ¸üĞÂµÀ¾ßÀ¸
+	 * æ›´æ–°é“å…·æ 
 	 */
 	synchronized private void updateItems() {
 		ItemInstance[] items = dataManager.getItems(context.getPlayer());
@@ -170,19 +170,19 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 		// 2  | 3
 		//----|-----
 		// 4  | 5
-		//×°±¸À¸
+		//è£…å¤‡æ 
 		for(int r=0;r<erows;r++) {
 			for(int c=0;c<ecols;c++) {
 				//create label
 				int index = r*ecols + c;
 				ItemInstance item = items[index];
 				ItemLabel label = itemlabels[index];
-				if(item!=null) {//Êı¾İÁĞ±íÓĞitem
-					if(label!=null) {//¸ñ×ÓÓĞÎïÆ·
-						if(label.getItem() != item) {//Èç¹û²»ÊÇÍ¬Ò»¸öÎïÆ·
+				if(item!=null) {//æ•°æ®åˆ—è¡¨æœ‰item
+					if(label!=null) {//æ ¼å­æœ‰ç‰©å“
+						if(label.getItem() != item) {//å¦‚æœä¸æ˜¯åŒä¸€ä¸ªç‰©å“
 							label.setItem(item);
 						}
-					}else {//¸ñ×Ó¿Õ×Å
+					}else {//æ ¼å­ç©ºç€
 						try {
 							label = new ItemLabel(item);
 							label.setLocation(x1 + c*ecellWidth , y1+r*ecellHeight+1);
@@ -191,12 +191,12 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 							panel.add(label,0);
 							itemlabels[index] = label;
 						}catch(Exception e1) {
-							System.out.println("Ìí¼ÓitemÊ§°Ü£¡"+item);
+							System.out.println("æ·»åŠ itemå¤±è´¥ï¼"+item);
 							e1.printStackTrace();
 						}
 					}
 					label.setCellType(CellType.EQUIP);
-				}else {//Çå³ı¸ñ×Ó
+				}else {//æ¸…é™¤æ ¼å­
 					if(label!=null) {
 						panel.remove(label);
 						label.removeMouseListener(this);
@@ -207,19 +207,19 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 			}
 		}
 		
-		//±³°üÀ¸
+		//èƒŒåŒ…æ 
 		for(int r=0;r<rows;r++) {
 			for(int c=0;c<cols;c++) {
 				//create label
 				int index = r*cols + c + (erows*ecols);
 				ItemInstance item = items[index];
 				ItemLabel label = itemlabels[index];
-				if(item!=null) {//Êı¾İÁĞ±íÓĞitem
-					if(label!=null) {//¸ñ×ÓÓĞÎïÆ·
-						if(label.getItem() != item) {//Èç¹û²»ÊÇÍ¬Ò»¸öÎïÆ·
+				if(item!=null) {//æ•°æ®åˆ—è¡¨æœ‰item
+					if(label!=null) {//æ ¼å­æœ‰ç‰©å“
+						if(label.getItem() != item) {//å¦‚æœä¸æ˜¯åŒä¸€ä¸ªç‰©å“
 							label.setItem(item);
 						}
-					}else {//¸ñ×Ó¿Õ×Å
+					}else {//æ ¼å­ç©ºç€
 						try {
 							label = new ItemLabel(item);
 							label.setLocation(x0 + c*cellWidth , y0+r*cellHeight+1);
@@ -229,12 +229,12 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 							panel.add(label);
 							itemlabels[index] = label;
 						}catch(Exception e) {
-							System.out.println("Ìí¼ÓitemÊ§°Ü£¡"+item);
+							System.out.println("æ·»åŠ itemå¤±è´¥ï¼"+item);
 							e.printStackTrace();
 						}
 					}
 					label.setCellType(CellType.BAG);
-				}else {//Çå³ı¸ñ×Ó
+				}else {//æ¸…é™¤æ ¼å­
 					if(label!=null) {
 						panel.remove(label);
 						label.removeMouseListener(this);
@@ -268,7 +268,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 				UnifiedJEXL ujexl = new UnifiedJEXL(jexl);
 				expression = ujexl.parse(tpl);
 			} catch (Exception e) {
-				System.out.println("´´½¨JEXL±í´ïÊ½Ê§°Ü");
+				System.out.println("åˆ›å»ºJEXLè¡¨è¾¾å¼å¤±è´¥");
 				e.printStackTrace();
 			}
 		}
@@ -289,11 +289,11 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
     	e.consume();
 		switch(e.getButton()){
 			case MouseEvent.BUTTON1:
-				//×ó¼üµã»÷ÒÆ¶¯ÎïÆ·
+				//å·¦é”®ç‚¹å‡»ç§»åŠ¨ç‰©å“
 				moveItems(e);
 				break;
 			case MouseEvent.BUTTON3:
-				//ÓÒ¼üµã»÷Ê¹ÓÃÎïÆ·
+				//å³é”®ç‚¹å‡»ä½¿ç”¨ç‰©å“
 				useItem(e);
 				break;
 		}
@@ -301,7 +301,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
     }
 	
 	/**
-	 * ÒÆ¶¯ÎïÆ·
+	 * ç§»åŠ¨ç‰©å“
 	 * @param e
 	 */
 	synchronized private void moveItems(MouseEvent e){
@@ -309,21 +309,21 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
     	Point cell = getCell(e);
     	if(cell!=null) {
     		int newIndex = cell.x + cols*cell.y + 6;
-    		if(selItemLabel!=null) {//ÒÑ¾­Ñ¡ÔñÁËÎïÆ·
+    		if(selItemLabel!=null) {//å·²ç»é€‰æ‹©äº†ç‰©å“
 				if(selectedIndex == newIndex) {
 					stopMoving();
 					return;
 				}
 				Player player = context.getPlayer();
-				//Èç¹û²»ÄÜµş¼ÓÎïÆ·Ôò½øĞĞÒÆ¶¯
+				//å¦‚æœä¸èƒ½å åŠ ç‰©å“åˆ™è¿›è¡Œç§»åŠ¨
 				if(!overlayItems(selectedIndex, newIndex)) {
-					//½»»»Ä£ĞÍÖĞµÄÊı¾İ
+					//äº¤æ¢æ¨¡å‹ä¸­çš„æ•°æ®
 					dataManager.swapItem(player, selectedIndex, newIndex);
 				}
-    			//Íê³ÉÒÆ¶¯
+    			//å®Œæˆç§»åŠ¨
     			updateItems();
 				stopMoving();
-    		}else if(src instanceof ItemLabel){//Ñ¡ÔñÎïÆ·
+    		}else if(src instanceof ItemLabel){//é€‰æ‹©ç‰©å“
     			ItemLabel label = (ItemLabel) src;
     			selectedBorder.setLocation(x0+cell.x*cellWidth, y0+cell.y*cellHeight);
     			panel.add(selectedBorder,0);
@@ -333,14 +333,14 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
     			selectedIndex = newIndex;
     		}
     		
-    	}else {//Ã»ÓĞµã»÷ÔÚµ¥Ôª¸ñÉÏ£¬³·ÏúÒÆ¶¯ÎïÆ·
+    	}else {//æ²¡æœ‰ç‚¹å‡»åœ¨å•å…ƒæ ¼ä¸Šï¼Œæ’¤é”€ç§»åŠ¨ç‰©å“
     		stopMoving();
     	}
     			
 	}
 	
     /**
-     * Í£Ö¹ÒÆ¶¯ÎïÆ·£¨ÒÆ¶¯Íê³É»òÕßÈ¡ÏûÒÆ¶¯£©
+     * åœæ­¢ç§»åŠ¨ç‰©å“ï¼ˆç§»åŠ¨å®Œæˆæˆ–è€…å–æ¶ˆç§»åŠ¨ï¼‰
      */
     private void stopMoving() {
 		if(selItemLabel!=null) {
@@ -354,7 +354,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
     }
 	
 	/**
-	 * ÅĞ¶ÏÁ½¸öÎïÆ·ÊÇ·ñ¿ÉÒÔµş¼Ó£¬Èç¹û¿ÉÒÔÔò½øĞĞµş¼Ó
+	 * åˆ¤æ–­ä¸¤ä¸ªç‰©å“æ˜¯å¦å¯ä»¥å åŠ ï¼Œå¦‚æœå¯ä»¥åˆ™è¿›è¡Œå åŠ 
 	 * @param srcIndex
 	 * @param destIndex
 	 * @return
@@ -362,9 +362,9 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 	private boolean overlayItems(int srcIndex,int destIndex) {
 		ItemInstance[] items = dataManager.getItems(context.getPlayer());
 		if(items[srcIndex]!=null && items[destIndex]!=null) {
-			//Èç¹ûµş¼Ó³É¹¦
+			//å¦‚æœå åŠ æˆåŠŸ
 			if(dataManager.overlayItems(items[srcIndex],items[destIndex])) {
-				if(items[srcIndex].getAmount()==0) {//Èç¹ûÎïÆ·ÊıÁ¿Îª0£¬ÔòÏú»ÙÖ®
+				if(items[srcIndex].getAmount()==0) {//å¦‚æœç‰©å“æ•°é‡ä¸º0ï¼Œåˆ™é”€æ¯ä¹‹
 					items[srcIndex] = null;
 				}
 				return true;
@@ -374,7 +374,7 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 	}
 
 	/**
-	 * Ê¹ÓÃÎïÆ·
+	 * ä½¿ç”¨ç‰©å“
 	 * @param e
 	 * @return
 	 */
@@ -384,11 +384,11 @@ public class item extends PanelHandler implements MouseListener,MouseMotionListe
 			ItemLabel label = (ItemLabel) c;
 			ItemInstance item = label.getItem();
 			
-			//µã»÷ÔÚ×°±¸À¸ÉÏ
+			//ç‚¹å‡»åœ¨è£…å¤‡æ ä¸Š
 			if(CellType.EQUIP.equals(label.getCellType())) {
 				takeoffEquipment(label.getItem());
 			}else {
-				//µã»÷ÔÚ±³°üÀ¸£¬Èç¹ûÊÇÎäÆ÷ÀàÔò×°±¸ÉÏ£¬·ñÔòÊ¹ÓÃÎïÆ·
+				//ç‚¹å‡»åœ¨èƒŒåŒ…æ ï¼Œå¦‚æœæ˜¯æ­¦å™¨ç±»åˆ™è£…å¤‡ä¸Šï¼Œå¦åˆ™ä½¿ç”¨ç‰©å“
 				if(ItemTypes.isWeapon(item.getItem())){
 					takeupEquipment(label.getItem());
 				}else {

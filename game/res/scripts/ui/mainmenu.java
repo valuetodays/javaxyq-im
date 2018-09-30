@@ -13,7 +13,7 @@ import com.javaxyq.profile.ProfileException;
 import com.javaxyq.ui.Panel;
 
 /**
- * сно╥жВ╡к╣╔
+ * Ф╦╦Ф┬▐Д╦╩Х▐°Е█∙
  * @author gongdewei
  * @date 2011-5-2 create
  */
@@ -33,9 +33,9 @@ public class mainmenu extends PanelHandler {
 			application.loadProfile(profileName);
 			application.enterScene();
 		} catch (ProfileException e) {
-			System.err.println("╪стьсно╥╢Ф╣╣й╖╟э!");
+			System.err.println("Е┼═Х╫╫Ф╦╦Ф┬▐Е╜≤Ф║ёЕ╓╠Х╢╔!");
 			e.printStackTrace();
-			application.getUIHelper().prompt("╪стьсно╥╢Ф╣╣й╖╟э!", 3000);
+			application.getUIHelper().prompt("Е┼═Х╫╫Ф╦╦Ф┬▐Е╜≤Ф║ёЕ╓╠Х╢╔!", 3000);
 		}
 	}
 	
