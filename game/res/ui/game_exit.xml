@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dialogs>
+  <Dialog id="game_exit" align="center" x="93" y="166" width="482" height="170" background="/wzife/dialog/npcchat.tcp">
+    <Text text="你确定要退出游戏吗?" x="90" y="24" width="300" height="21" font="" size="" color="white" align="center" actionId=""/>
+    <Text name="version" text="JavaXYQ 1.5 @ 20140302  开发QQ群(35896251)" x="89" y="146" width="300" height="16" font="" size="" color="white" align="center" actionId=""/>
+    <Button text="结束游戏" actionId="exit_game" x="71" y="65" was="/wzife/button/longbtn.tcp" width="72" height="22"/>
+    <Button text="继续游戏" actionId="close" x="194" y="65" was="/wzife/button/longbtn.tcp"/>
+    <Button text="项目主页" actionId="visit_homepage" x="70" y="106" was="/wzife/button/longbtn.tcp" width="72" height="22"/>
+    <Button name="debugbtn" text="打开调试" actionId="toggle_debug" x="193" y="107" was="/wzife/button/longbtn.tcp"/>
+    <Button name="musicbtn" text="关闭音乐" actionId="toggle_music" x="324" y="66" was="/wzife/button/longbtn.tcp"/>
+    <Button text="贡献者" actionId="contributors" x="322" y="106" was="/wzife/button/longbtn.tcp"/>
+  </Dialog>
+</Dialogs>
