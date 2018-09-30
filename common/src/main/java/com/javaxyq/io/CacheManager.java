@@ -7,21 +7,14 @@
  */
 package com.javaxyq.io;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.javaxyq.event.DownloadEvent;
+import com.javaxyq.event.DownloadListener;
+
+import javax.swing.*;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
-import javax.swing.SwingUtilities;
-
-import com.javaxyq.event.DownloadEvent;
-import com.javaxyq.event.DownloadListener;
 
 /**
  * 缓存管理器
@@ -134,6 +127,9 @@ public class CacheManager {
 	}
 
 	public File getFile(String filename) {
+		if (System.getProperty("java.class.path").contains("idea_rt.jar")) {
+			filename = "D:\\gitee\\javaxyq-im\\game\\res\\" + filename;
+		}
 		File file = null;
 		if (filename.charAt(0) == '/') {
 			filename = filename.substring(1);

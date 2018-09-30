@@ -3,15 +3,6 @@
  */
 package com.javaxyq.core;
 
-import java.awt.Image;
-import java.awt.Point;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import com.javaxyq.action.MedicineItemHandler;
 import com.javaxyq.action.WeaponItemHandler;
 import com.javaxyq.data.XmlDataLoader;
@@ -19,11 +10,13 @@ import com.javaxyq.io.CacheManager;
 import com.javaxyq.menu.MainMenuCanvas;
 import com.javaxyq.model.ItemTypes;
 import com.javaxyq.profile.ProfileException;
-import com.javaxyq.task.TaskManager;
 import com.javaxyq.ui.Panel;
 import com.javaxyq.util.SuffixFilenameFilter;
 import com.javaxyq.widget.Cursor;
 import com.javaxyq.widget.Player;
+
+import java.awt.*;
+import java.io.File;
 
 /**
  * 桌面游戏客户端程序
