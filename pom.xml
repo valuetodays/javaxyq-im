@@ -10,9 +10,8 @@
     <modules>
         <module>common</module>
         <module>game</module>
-        <!--        <module>maker</module>
-                <module>resource-manager</module>
-        -->
+        <module>maker</module>
+        <module>resource-manager</module>
     </modules>
 
     <properties>
@@ -32,7 +31,6 @@
             <version>1.2.17</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
