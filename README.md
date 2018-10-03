@@ -11,7 +11,8 @@
 3. 玩！去game/target/dist/game-1.5下双击javaxyq.bat即可
 
 
-#### 运行resource-manage
-1. 运行com.javaxyq.tools.ResourceManager即可
+#### 运行resource-manage & UIMaker
+- 运行com.javaxyq.tools.ResourceManager即可（请全局搜索类名）
+- 运行com.javaxyq.tools.UIMaker即可（请全局搜索类名）
 
 2018-09-30

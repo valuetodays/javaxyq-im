@@ -22,7 +22,6 @@ import com.jidesoft.editor.CodeEditor;
 import com.jidesoft.editor.SyntaxDocument;
 import com.jidesoft.editor.tokenmarker.JavaTokenMarker;
 import com.jidesoft.swing.JideTabbedPane;
-import org.apache.commons.lang.StringUtils;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationContext;
@@ -278,7 +277,7 @@ public class SceneEditor extends JPanel implements MouseListener {
 	/**
 	 * 设置当前场景
 	 * 
-	 * @param filename
+	 * @param sceneId
 	 * @return
 	 */
 	public void setScene(String sceneId) {
@@ -312,9 +311,7 @@ public class SceneEditor extends JPanel implements MouseListener {
 	 * @param characterId
 	 * @param sceneId
 	 * @param name TODO
-	 * @param x
-	 * @param y
-	 * @return 
+	 * @return
 	 * @throws Exception 
 	 * @throws PreexistingEntityException 
 	 */

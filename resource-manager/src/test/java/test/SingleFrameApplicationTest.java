@@ -1,11 +1,10 @@
 package test;
 
-import com.javaxyq.tools.*;
+import com.javaxyq.tools.XYQTools;
 import com.jidesoft.action.CommandBar;
 import com.jidesoft.status.LabelStatusBarItem;
 import com.jidesoft.status.MemoryStatusBarItem;
 import com.jidesoft.status.StatusBar;
-import com.jidesoft.swing.FolderChooser;
 import com.jidesoft.swing.JideBoxLayout;
 import com.jidesoft.swing.JideButton;
 import org.apache.log4j.Logger;
@@ -16,12 +15,11 @@ import org.jdesktop.application.SingleFrameApplication;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.util.Map;
 
 /**
  * 想要正常显示出一个窗口，需要写一个类，继承{@link SingleFrameApplication}
  * 同时在，包名/resources/下新建一个properties文件，名称必须是“类名.properties”
+ *
  * @author liulei-home
  * @since 2018-10-03 11:36
  */
@@ -40,43 +38,23 @@ public class SingleFrameApplicationTest extends SingleFrameApplication {
 
     private JPanel toolBarPanel;
 
-    private FolderChooser folderChooser;
-
-    private File lastOpenDir = new File("E:/Games/梦幻西游");
-    private File lastSaveDir = new File(".");
-
-    private JFileChooser fileChooser = new JFileChooser();
 
     private StatusBar statusBar;
 
     private JDesktopPane desktop;
 
-    private JTree structTree;
-
-    private PreviewPanel defaultPreviewPanel;
 
     private SingleFrameApplication app;
 
-    private java.util.List<String> recentList;
-
-
-    private Map<FileSystem, JTree> treeMap;
-
-    private Cursor handCursor;
-
-    private Cursor grabCursor;
 
     private JScrollPane treePanel;
 
     private JMenu helpMenu;
 
-    private JFileChooser savefileChooser;
-
     private JideButton openFolderButton;
 
     private JMenu windowMenu;
 
-    private SpriteExtractor spriteExtractor;
 
     public static void main(String[] args) {
         XYQTools.verifyJideLicense();
@@ -101,7 +79,7 @@ public class SingleFrameApplicationTest extends SingleFrameApplication {
         ResourceMap resourceMap = getContext().getResourceMap();
         Integer w = resourceMap.getInteger("Application.width");
         Integer h = resourceMap.getInteger("Application.height");
-        LOG.debug("w="+w + ", h="+h);
+        LOG.debug("w=" + w + ", h=" + h);
         w = w == null ? 640 : w;
         h = h == null ? 480 : h;
         mainFrame.setSize(w, h);
