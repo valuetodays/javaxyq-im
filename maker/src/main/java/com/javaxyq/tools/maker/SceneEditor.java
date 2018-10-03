@@ -7,41 +7,6 @@
  */
 package com.javaxyq.tools.maker;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.sql.SQLException;
-import java.util.List;
-
-import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.border.Border;
-import javax.swing.text.BadLocationException;
-
-import org.jdesktop.application.Action;
-import org.jdesktop.application.Application;
-import org.jdesktop.application.ApplicationContext;
-import org.jdesktop.application.SingleFrameApplication;
-
 import com.javaxyq.core.SpriteFactory;
 import com.javaxyq.data.PreexistingEntityException;
 import com.javaxyq.data.SceneNpc;
@@ -57,6 +22,19 @@ import com.jidesoft.editor.CodeEditor;
 import com.jidesoft.editor.SyntaxDocument;
 import com.jidesoft.editor.tokenmarker.JavaTokenMarker;
 import com.jidesoft.swing.JideTabbedPane;
+import org.apache.commons.lang.StringUtils;
+import org.jdesktop.application.Action;
+import org.jdesktop.application.Application;
+import org.jdesktop.application.ApplicationContext;
+import org.jdesktop.application.SingleFrameApplication;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.text.BadLocationException;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.List;
 
 /**
  * 场景编辑器

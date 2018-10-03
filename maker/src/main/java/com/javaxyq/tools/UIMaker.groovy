@@ -1,51 +1,21 @@
+package com.javaxyq.tools
 
-package com.javaxyq.tools;
-/*
- * JavaXYQ Source Code 
- * UIMaker UIMaker.groovy
- * by kylixs 2009-10
- * All Rights Reserved.
- * Please see also http://javaxyq.cn or http://javaxyq.googlecode.com.
- * Please email to  javaxyq@qq.com.
- */
+import com.javaxyq.config.ImageConfig
+import com.javaxyq.ui.Panel
+import com.javaxyq.ui.XmlDialogBuilder
+import com.javaxyq.util.ClassUtil
+import com.javaxyq.util.ClosureTask
+import com.jidesoft.swing.FolderChooser
+import groovy.swing.SwingBuilder
 
-import com.javaxyq.util.ClassUtil;
-import com.javaxyq.util.ClosureTask;
-import com.javaxyq.ui.Panel;
-
-
-import com.javaxyq.config.ImageConfig;
-import javax.swing.table.TableModel;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.image.BufferedImage;
-
-import com.jidesoft.swing.FolderChooser;
-import com.jidesoft.swing.Resizable;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-
-import java.util.List;
-import java.io.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.event.ChangeEvent;
-
-import org.codehaus.groovy.runtime.StringBufferWriter;
-
-
-import groovy.model.ValueHolder;
-import groovy.model.ValueModel;
-import groovy.swing.SwingBuilder;
-import groovy.swing.factory.TableModelFactory;
-import com.javaxyq.ui.XmlDialogBuilder;
-import com.javaxyq.ui.*;
-import com.javaxyq.core.*;
-import groovy.util.*;
-import java.beans.PropertyChangeListener;
+import javax.swing.*
+import javax.swing.border.Border
+import javax.swing.border.EmptyBorder
+import javax.swing.event.*
+import java.awt.*
+import java.awt.event.*
+import java.awt.image.BufferedImage
+import java.util.List
 /**
  * @author dewitt
  *

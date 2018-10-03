@@ -1,53 +1,10 @@
 package com.javaxyq.util;
 
-/*
- * @(#)ExampleFileFilter.java	1.8 04/07/26
- * 
- * Copyright (c) 2004 Sun Microsystems, Inc. All Rights Reserved.
- * 
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- * 
- * -Redistribution of source code must retain the above copyright notice, this
- *  list of conditions and the following disclaimer.
- * 
- * -Redistribution in binary form must reproduce the above copyright notice, 
- *  this list of conditions and the following disclaimer in the documentation
- *  and/or other materials provided with the distribution.
- * 
- * Neither the name of Sun Microsystems, Inc. or the names of contributors may 
- * be used to endorse or promote products derived from this software without 
- * specific prior written permission.
- * 
- * This software is provided "AS IS," without a warranty of any kind. ALL 
- * EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING
- * ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
- * OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED. SUN MIDROSYSTEMS, INC. ("SUN")
- * AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
- * AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS
- * DERIVATIVES. IN NO EVENT WILL SUN OR ITS LICENSORS BE LIABLE FOR ANY LOST 
- * REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, 
- * INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY 
- * OF LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE, 
- * EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
- * 
- * You acknowledge that this software is not designed, licensed or intended
- * for use in the design, construction, operation or maintenance of any
- * nuclear facility.
- */
-
-/*
- * @(#)ExampleFileFilter.java	1.8 04/07/26
- */
-
+import javax.swing.filechooser.FileFilter;
 import java.io.File;
-import java.util.Hashtable;
 import java.util.Enumeration;
-import java.util.Set;
-import java.util.regex.Matcher;
+import java.util.Hashtable;
 import java.util.regex.Pattern;
-
-import javax.swing.filechooser.*;
 
 /**
  * A convenience implementation of FileFilter that filters out all files except
@@ -148,7 +105,6 @@ public class ExampleFileFilter extends FileFilter {
 	 * Files that begin with "." are ignored.
 	 * 
 	 * @see #getExtension
-	 * @see FileFilter#accepts
 	 */
 	public boolean accept(File f) {
 		if (f != null) {
@@ -217,9 +173,6 @@ public class ExampleFileFilter extends FileFilter {
 	 * Returns the human readable description of this filter. For example:
 	 * "JPEG and GIF Image Files (*.jpg, *.gif)"
 	 * 
-	 * @see setDescription
-	 * @see setExtensionListInDescription
-	 * @see isExtensionListInDescription
 	 * @see FileFilter#getDescription
 	 */
 	public String getDescription() {
@@ -246,9 +199,6 @@ public class ExampleFileFilter extends FileFilter {
 	 * Sets the human readable description of this filter. For example:
 	 * filter.setDescription("Gif and JPG Images");
 	 * 
-	 * @see setDescription
-	 * @see setExtensionListInDescription
-	 * @see isExtensionListInDescription
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -262,9 +212,6 @@ public class ExampleFileFilter extends FileFilter {
 	 * Only relevent if a description was provided in the constructor or using
 	 * setDescription();
 	 * 
-	 * @see getDescription
-	 * @see setDescription
-	 * @see isExtensionListInDescription
 	 */
 	public void setExtensionListInDescription(boolean b) {
 		useExtensionsInDescription = b;
@@ -278,9 +225,6 @@ public class ExampleFileFilter extends FileFilter {
 	 * Only relevent if a description was provided in the constructor or using
 	 * setDescription();
 	 * 
-	 * @see getDescription
-	 * @see setDescription
-	 * @see setExtensionListInDescription
 	 */
 	public boolean isExtensionListInDescription() {
 		return useExtensionsInDescription;
